@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.port0{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 10px;
+  justify-content: space-evenly;
+  background: linear-gradient(to bottom, beige, white);
+} 
+
+form select{
+  margin: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-out;
+  background-color: white;
+  color: maroon;
+  width: 15em;
+}
+
+
+select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+
+form input{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease-out;
+}
+
+
+form input:hover{
+  border: 2px solid maroon;
+
+}
+
+form button{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #333;
+  color: white;
+  transition: all 0.3s ease-out;
+}
+
+form button:hover{
+  background-color: #555;
+}
+
+form label{
+  margin: 10px;
+  color:maroon;
+  font-size: 1em;
+}
+
+form{
+  border: 2px solid maroon;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.heading{
+  color:maroon;
+}
+
+a{
+  color: maroon;
+  text-decoration: none;
+}
