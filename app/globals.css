@@ -1,24 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
-.port0{
-  font-family: 'Roboto Mono', monospace;
+.port0 {
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
 }
 
-main{
+main {
   display: flex;
   align-items: center;
   height: 100vh;
   padding: 10px;
   justify-content: space-evenly;
   background: linear-gradient(to bottom, beige, white);
-} 
+}
 
-form select{
+form select {
   margin: 10px;
   padding: 12px;
   border-radius: 5px;
@@ -29,17 +28,15 @@ form select{
   width: 15em;
 }
 
-
 select:focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-
-form input{
+form input {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -47,13 +44,11 @@ form input{
   transition: all 0.3s ease-out;
 }
 
-
-form input:hover{
+form input:hover {
   border: 2px solid maroon;
-
 }
 
-form button{
+form button {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -63,28 +58,28 @@ form button{
   transition: all 0.3s ease-out;
 }
 
-form button:hover{
+form button:hover {
   background-color: #555;
 }
 
-form label{
+form label {
   margin: 10px;
-  color:maroon;
+  color: maroon;
   font-size: 1em;
 }
 
-form{
+form {
   border: 2px solid maroon;
   padding: 20px;
   border-radius: 10px;
   transition: all 0.3s ease-out;
 }
 
-.heading{
-  color:maroon;
+.heading {
+  color: maroon;
 }
 
-a{
+a {
   color: maroon;
   text-decoration: none;
 }
