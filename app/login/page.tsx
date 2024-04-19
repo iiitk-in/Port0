@@ -53,7 +53,7 @@ export default function Registration() {
           </svg>
         )}
       </button>
-      <main className="flex flex-col text-sm md:text-base md:flex-row md:items-center h-screen p-4 md:p-10 justify-evenly ">
+      <main className="flex flex-col items-center text-sm sm:text-base sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly ">
         {" "}
         <div className="heading">
           <h1 className="text-3xl flex-auto text-center p-3 dark:text-white text-red-900 md:mr-10">
@@ -65,7 +65,7 @@ export default function Registration() {
           onSubmit={handleSubmit}
           className="text-red-900 dark:text-white border-2 dark:border-white border-red-900"
         >
-          <div className="text-xl flex flex-col sm:flex-col lg:flex-row items-center ">
+          <div className="text-l flex flex-col sm:flex-col lg:flex-row items-center ">
             <div className="page1">
               <div>
                 <label>

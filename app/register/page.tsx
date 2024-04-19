@@ -36,7 +36,7 @@ export default function Registration() {
   return (
     <main className="flex-col bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024]">
       <button
-        className="dark:bg-slate-800 border border-red-900 dark:border-gray-600 p-2 rounded-lg mt-5 mr-5 ml-auto size-10 flex align-center justify-center mt-10"
+        className="dark:bg-slate-800 border border-red-900 dark:border-gray-600 p-2 rounded-lg mt-5 ml-auto size-10 mr-5 flex align-center justify-center mt-10"
         onClick={toggleDarkMode}
       >
         {darkMode ? (
@@ -71,7 +71,7 @@ export default function Registration() {
           </svg>
         )}
       </button>
-      <main className="flex flex-col text-sm md:text-base md:flex-row md:items-center h-screen p-4 md:p-10 justify-evenly">
+      <section className="flex flex-col text-sm sm:text-base sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly">
         {" "}
         <div></div>
         <div className="heading">
@@ -84,7 +84,7 @@ export default function Registration() {
           onSubmit={handleSubmit}
           className="text-red-900 dark:text-white border-2 dark:border-white border-red-900"
         >
-          <div className="text-xl flex flex-col sm:flex-col lg:flex-row items-center">
+          <div className="text-20 flex flex-col sm:flex-col lg:flex-row items-center">
             <div className="page1">
               <div>
                 <label>
@@ -179,7 +179,7 @@ export default function Registration() {
             </footer>
           </div>
         </form>
-      </main>
+      </section>
     </main>
   );
 }
