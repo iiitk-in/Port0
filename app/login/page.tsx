@@ -111,7 +111,7 @@ export default function Registration() {
             <button>Login</button>
             <footer className="text-sm">
               <p>
-                Don't have an account? <Link href="/register">Register</Link>
+                Don&apos;t have an account? <Link href="/register">Register</Link>
               </p>
             </footer>
           </div>
