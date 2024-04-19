@@ -5,29 +5,11 @@ import React from "react";
 
 export default function Registration() {
   const [password, setPassword] = useState("");
-  const [boxcolor, setBoxcolor] = useState("");
-  const [visible, setVisible] = useState("block");
-  const [strength, setStrength] = useState("Weak");
   const [darkMode, setDarkMode] = useState(false);
   function toggleDarkMode() {
     document.documentElement.classList.toggle("dark");
     setDarkMode(!darkMode);
   }
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-    setVisible("block");
-    if (password.length < 5) {
-      setBoxcolor("red");
-      setStrength("Weak");
-    } else if (password.length < 9) {
-      setBoxcolor("#CC7722");
-      setStrength("Medium");
-    } else {
-      setBoxcolor("green");
-      setStrength("Strong");
-    }
-  };
 
   const handleSubmit = () => {
     //will do this later
@@ -71,12 +53,11 @@ export default function Registration() {
           </svg>
         )}
       </button>
-      <main className="flex flex-col text-sm md:text-base md:flex-row md:items-center h-screen p-4 md:p-10 justify-evenly">
+      <main className="flex flex-col text-sm md:text-base md:flex-row md:items-center h-screen p-4 md:p-10 justify-evenly ">
         {" "}
-        <div></div>
         <div className="heading">
           <h1 className="text-3xl flex-auto text-center p-3 dark:text-white text-red-900 md:mr-10">
-            Register for the <span className="port0">Port0</span> Authentication
+            Login to the <span className="port0">Port0</span> Authentication
             Service
           </h1>
         </div>
@@ -84,28 +65,8 @@ export default function Registration() {
           onSubmit={handleSubmit}
           className="text-red-900 dark:text-white border-2 dark:border-white border-red-900"
         >
-          <div className="text-xl flex flex-col sm:flex-col lg:flex-row items-center">
+          <div className="text-xl flex flex-col sm:flex-col lg:flex-row items-center ">
             <div className="page1">
-              <div>
-                <label>
-                  Name: <br />
-                  <input
-                    type="text"
-                    name="name"
-                    className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
-                  />
-                </label>
-              </div>
-              <div>
-                <label>
-                  Roll Number: <br />
-                  <input
-                    type="text"
-                    name="roll"
-                    className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
-                  />
-                </label>
-              </div>
               <div>
                 <label>
                   Email: <br />
@@ -124,34 +85,13 @@ export default function Registration() {
                     type="password"
                     name="password"
                     value={password}
-                    onChange={handlePasswordChange}
-                    style={{ borderColor: boxcolor }}
                     className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
                   />
-                  <div className="ml-10 mb-0">
-                    <p className="text-md" style={{ display: visible }}>
-                      Password Strength:{" "}
-                      <span style={{ color: boxcolor }}>{strength}</span>
-                    </p>
-                  </div>
                 </label>
               </div>
             </div>
             <div className="page2">
               <div>
-                <label>
-                  Batch: <br />
-                  <select
-                    name="batch"
-                    className="dark:text-white dark:bg-slate-800 bg-white dark:border-gray-600 p-2 rounded-lg mt-3"
-                  >
-                    <option value="batch1">Batch 1</option>
-                    <option value="batch2">Batch 2</option>
-                    <option value="batch3">Batch 3</option>
-                  </select>
-                </label>
-              </div>
-              <div className=" mt-3">
                 <label>
                   Year: <br />
                   <select
@@ -168,13 +108,10 @@ export default function Registration() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <button>Register</button>
+            <button>Login</button>
             <footer className="text-sm">
               <p>
-                Already have an account?{" "}
-                <Link className="dark:text-white" href="/login">
-                  Login
-                </Link>
+                Don't have an account? <Link href="/register">Register</Link>
               </p>
             </footer>
           </div>

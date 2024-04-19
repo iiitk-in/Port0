@@ -9,14 +9,15 @@ export const metadata: Metadata = {
   description: "IIITK's Student-Run Host",
 };
 
-export default function RootLayout({
+export default function RootLayout(  {
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}</body>
     </html>
   );
 }
