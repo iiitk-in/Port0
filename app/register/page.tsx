@@ -172,7 +172,7 @@ export default function Registration() {
             <footer className="text-sm">
               <p>
                 Already have an account?{" "}
-                <Link className="dark:text-white" href="/login">
+                <Link className="dark:text-white underline" href="/login">
                   Login
                 </Link>
               </p>

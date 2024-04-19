@@ -9,7 +9,7 @@ export default function Page() {
     setDarkMode(!darkMode);
   }
   return (
-    <main className="flex-col bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024]">
+    <main className="flex-col bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024] ">
       <button
         className="dark:bg-slate-800 border border-red-900 dark:border-gray-600 p-2 rounded-lg m-5 ml-auto size-10 flex align-center justify-center"
         onClick={toggleDarkMode}
@@ -48,7 +48,7 @@ export default function Page() {
       </button>
 
       <h1 className="dark:text-white text-4xl port0 my-2">Port0</h1>
-      <section className="rounded-lg p-5 dark:text-white border md:max-w-3xl md:mt-9 border-red-900 dark:border-white backdrop-blur-3xl">
+      <section className="rounded-lg p-5 dark:text-white border md:max-w-3xl md:mt-9 border-red-900 dark:border-white backdrop-blur-3xl transition-all duration-300 ease-out">
         <h3 className="block mb-3">
           <span className="port0">Port0</span>, the authentication service that
           is at the centre of IIITK.in.
