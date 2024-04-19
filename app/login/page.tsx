@@ -53,7 +53,7 @@ export default function Registration() {
           </svg>
         )}
       </button>
-      <main className="flex flex-col items-center text-sm sm:text-base sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly ">
+      <main className="flex flex-col items-center text-sm sm:text-base sm:text-xl sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly ">
         {" "}
         <div className="heading">
           <h1 className="text-3xl flex-auto text-center p-3 dark:text-white text-red-900 md:mr-10">

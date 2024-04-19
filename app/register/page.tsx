@@ -71,7 +71,7 @@ export default function Registration() {
           </svg>
         )}
       </button>
-      <section className="flex flex-col text-sm sm:text-base sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly">
+      <section className="flex flex-col text-sm sm:text-base md:text-xl sm:flex-row sm:items-center h-screen p-4 md:p-10 justify-evenly">
         {" "}
         <div></div>
         <div className="heading">
