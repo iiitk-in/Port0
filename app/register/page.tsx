@@ -9,6 +9,8 @@ export default function Registration() {
   const [visible, setVisible] = useState("block");
   const [strength, setStrength] = useState("Weak");
   const [darkMode, setDarkMode] = useState(false);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState(false);
   function toggleDarkMode() {
     document.documentElement.classList.toggle("dark");
     setDarkMode(!darkMode);
@@ -28,9 +30,25 @@ export default function Registration() {
       setStrength("Strong");
     }
   };
-
+  const validateEmail = (email: string) => {
+    setEmail(email);
+    const re = /^[a-zA-Z0-9._-]+@iiitkottayam.ac.in$/;
+    if (re.test(email)) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+  };
+  
   const handleSubmit = () => {
     //will do this later
+    if (status === true) {
+      alert("Check for OTP in your college mail address.");
+    } else if (status === false) {
+      alert("Invalid Email. Use College email.");
+    }
+    //post using axios to /auth/register with the body as email
+    //redirect to /verify if all good
   };
 
   return (
@@ -110,8 +128,10 @@ export default function Registration() {
                 <label>
                   Email: <br />
                   <input
-                    type="email"
+                    type="text"
                     name="email"
+                    value={email}
+                    onChange={(evt) => validateEmail(evt.target.value)}
                     className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
                   />
                 </label>

@@ -85,6 +85,7 @@ export default function Registration() {
                     type="password"
                     name="password"
                     value={password}
+                    onChange={(evt)=>setPassword(evt.target.value)}
                     className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
                   />
                 </label>
