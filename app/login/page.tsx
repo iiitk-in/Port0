@@ -85,7 +85,7 @@ export default function Registration() {
                     type="password"
                     name="password"
                     value={password}
-                    onChange={(evt)=>setPassword(evt.target.value)}
+                    onChange={(evt) => setPassword(evt.target.value)}
                     className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
                   />
                 </label>
@@ -112,7 +112,10 @@ export default function Registration() {
             <button>Login</button>
             <footer className="text-sm">
               <p>
-                Don&apos;t have an account? <Link href="/register" className="underline">Register</Link>
+                Don&apos;t have an account?{" "}
+                <Link href="/register" className="underline">
+                  Register
+                </Link>
               </p>
             </footer>
           </div>

@@ -39,7 +39,7 @@ export default function Registration() {
       setStatus(false);
     }
   };
-  
+
   const handleSubmit = () => {
     //will do this later
     if (status === true) {
