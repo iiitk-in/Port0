@@ -1,5 +1,6 @@
 //INCOMPLETE
 //This page will be shown after OTP is verified and account is created
+"use client"
 import { useState } from "react";
 const Page = () => {
   const [auth, setAuth] = useState(false);
