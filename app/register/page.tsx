@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import React from "react";
+import daisyui from "daisyui";
 
 export default function Registration() {
   const [password, setPassword] = useState("");
@@ -11,6 +12,9 @@ export default function Registration() {
   const [darkMode, setDarkMode] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(false);
+  const [disp, setDisp] = useState(false);
+  const [dispotp, setDispotp] = useState(false);
+  const [passdisp, setPassDisp] = useState(false);
   function toggleDarkMode() {
     document.documentElement.classList.toggle("dark");
     setDarkMode(!darkMode);
@@ -41,12 +45,19 @@ export default function Registration() {
   };
 
   const handleSubmit = () => {
+    setDisp(false);
+    setDispotp(false);
+    setPassDisp(false);
+    event?.preventDefault();
     //will do this later
-    if (status === true) {
-      alert("Check for OTP in your college mail address.");
-    } else if (status === false) {
-      alert("Invalid Email. Use College email.");
+    if (status === false) {
+      setDisp(true);
+    } else if (password.length < 6) {
+      setPassDisp(true);
+    } else if (status === true) {
+      setDispotp(true);
     }
+
     //post using axios to /auth/register with the body as email
     //redirect to /verify if all good
   };
@@ -185,6 +196,26 @@ export default function Registration() {
                   </select>
                 </label>
               </div>
+            </div>
+          </div>
+          <div className="flex justify-center mt-5">
+            <div
+              style={disp ? { display: "block" } : { display: "none" }}
+              className="flex justify-center  alert alert-warning  text-center mx-5"
+            >
+              Oops! Use your college email.
+            </div>
+            <div
+              style={dispotp ? { display: "block" } : { display: "none" }}
+              className="flex justify-center  alert alert-success  text-center mx-5"
+            >
+              OTP Sent successfully!
+            </div>
+            <div
+              style={passdisp ? { display: "block" } : { display: "none" }}
+              className="flex justify-center  alert alert-warning  text-center mx-5"
+            >
+              Choose a stronger password!
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
