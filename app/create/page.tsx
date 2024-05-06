@@ -1,7 +1,7 @@
 //INCOMPLETE
 //This page will be shown after OTP is verified and account is created
 import {useState} from "react";
-const page = () =>{
+const Page = () =>{
     const [auth,setAuth] = useState(false);
     //maybe get auth status from status code returned from the post made after OTP
     if(auth){
