@@ -18,7 +18,7 @@ const Verify = () => {
 
   };
   const [salt, setSalt] = useState(''); 
-  setSalt(crypto.randomBytes(16).toString('base64'));
+  // setSalt(crypto.randomBytes(16).toString('base64'));
   const [token,setToken] = useState(''); // get this from localstorage maybe
   const [email,setEmail] = useState(''); 
   const [password,setPassword] = useState('');
