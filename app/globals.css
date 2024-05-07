@@ -2,7 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+main{
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 .port0 {
   font-family: "Roboto Mono", monospace;
   font-weight: bold;
@@ -24,7 +28,9 @@ form select {
 
   width: 15em;
 }
-
+.heading{
+  transition:all 0.3s ease-in;
+}
 form input {
   margin: 10px;
   padding: 10px;

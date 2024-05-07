@@ -1,9 +1,11 @@
+//HAVE TO ADD SUPPORT FOR DARK MODE
 "use client";
 import react from "react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import crypto from 'crypto';
+import NavBar from "../components/NavBar";
 
 var pbkdf2 = require('pbkdf2')
 
@@ -27,7 +29,9 @@ const Verify = () => {
   
 
   return (
-    <main className="flex md:flex-row flex-col text-center bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024]">
+    <main className="flex flex-col bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024]">
+      <NavBar />
+    <main className="flex md:flex-row flex-col text-center ">
       <div>
         <h1 style={{ fontSize: "25px", color: "maroon" }}>
           Verify your email to continue
@@ -63,6 +67,7 @@ const Verify = () => {
           </div>
         </form>
       </div>
+    </main>
     </main>
   );
 };
