@@ -12,6 +12,7 @@ const Form = () => {
     const [disp, setDisp] = useState(false);
     const [dispotp, setDispotp] = useState(false);
     const [passdisp, setPassDisp] = useState(false);
+    const [stage,setStage] = useState(0);
 
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
@@ -42,7 +43,6 @@ const Form = () => {
         setDispotp(false);
         setPassDisp(false);
         event?.preventDefault();
-        //will do this later
         if (status === false) {
             setDisp(true);
         } else if (password.length < 6) {
@@ -58,6 +58,7 @@ const Form = () => {
                 onSubmit={handleSubmit}
                 className="text-red-900 dark:text-white border-2 dark:border-white border-red-900"
             >
+
                 <div className="text-20 flex flex-col sm:flex-col lg:flex-row items-center">
                     <div className="page1">
                         <div>
