@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleDarkMode } from "../../redux/darkMode/darkModeActions";
 const Form = () => {
-    const [password, setPassword] = useState("");
-    const handleSubmit = () => {
-        event?.preventDefault();
+  const [password, setPassword] = useState("");
+  const handleSubmit = () => {
+    event?.preventDefault();
     //will do this later
   };
+  const dark = useSelector((state) => state.darkMode);
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="text-red-900 dark:text-white border-2 dark:border-white border-red-900"
+      className={
+        dark
+          ? "text-white border-2 border-white"
+          : "text-red-900 border-2 border-red-900"
+      }
     >
       <div className="text-l flex flex-col sm:flex-col lg:flex-row items-center ">
         <div className="page1">
@@ -20,7 +27,11 @@ const Form = () => {
               <input
                 type="email"
                 name="email"
-                className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
+                className={
+                  dark
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
+                    : "p-2 rounded-lg"
+                }
               />
             </label>
           </div>
@@ -33,7 +44,11 @@ const Form = () => {
                 name="password"
                 value={password}
                 onChange={(evt) => setPassword(evt.target.value)}
-                className="dark:text-white dark:bg-slate-800 dark:border-gray-600 p-2 rounded-lg"
+                className={
+                  dark
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
+                    : "p-2 rounded-lg"
+                }
               />
             </label>
           </div>
@@ -44,7 +59,11 @@ const Form = () => {
               Year: <br />
               <select
                 name="year"
-                className="dark:text-white dark:bg-slate-800 bg-white dark:border-gray-600 p-2 rounded-lg mt-3"
+                className={
+                  dark
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mt-3"
+                    : "bg-white p-2 rounded-lg mt-3"
+                }
               >
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>

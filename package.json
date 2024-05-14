@@ -17,7 +17,9 @@
     "next": "14.2.1",
     "pbkdf2": "^3.1.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
