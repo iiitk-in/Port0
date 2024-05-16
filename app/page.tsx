@@ -13,8 +13,8 @@ export default function Page() {
     <main
       className={
         dark
-          ? "overflow-auto flex-col bg-gradient-to-b from-[#020024] to-[#020024]"
-          : "overflow-auto flex-col bg-gradient-to-b from-amber-100 to-white"
+          ? "overflow-auto flex-col bg-gradient-to-b from-[#020024] to-[#020024] sm:overflow-x-hidden"
+          : "overflow-auto flex-col bg-gradient-to-b from-amber-100 to-white sm:overflow-x-hidden"
       }
     >
       <NavBar />
@@ -28,11 +28,10 @@ export default function Page() {
       <section
         className={
           dark
-            ? "rounded-lg p-5 text-white border md:max-w-3xl md:mt-9 border-white backdrop-blur-3xl transition-all duration-300 ease-out"
-            : "rounded-lg p-5 border md:max-w-3xl md:mt-9 border-red-900 backdrop-blur-3xl transition-all duration-300 ease-out"
+            ? "rounded-lg p-5 text-white border md:max-w-3xl md:mt-9 border-white backdrop-blur-3xl transition-all duration-300 ease-out "
+            : "rounded-lg p-5 border md:max-w-3xl md:mt-9 border-red-900 backdrop-blur-3xl transition-all duration-300 ease-out "
         }
       >
-        {" "}
         <h3 className="block mb-3">
           <span className="port0">Port0</span>, the authentication service that
           is at the centre of IIITK.in.
