@@ -4,7 +4,7 @@ const initialState = {
     darkMode: false
 }
 
-const darkModeReducer = (state = initialState, action) => {
+const darkModeReducer = (state = initialState, action: { type: any; }) => {
     switch(action.type){
         case TOGGLE_DARK_MODE:
             return{
