@@ -5,7 +5,7 @@ import store from "./redux/store";
 export default function Client({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      {children};
+      {children}
     </Provider>
   );
 }

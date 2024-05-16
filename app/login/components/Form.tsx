@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "../../redux/darkMode/darkModeActions";
+import { RootState } from "@/app/redux/store";
 const Form = () => {
   const [password, setPassword] = useState("");
   const handleSubmit = () => {
     event?.preventDefault();
     //will do this later
   };
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state: RootState) => state.darkMode);
 
   return (
     <form
@@ -19,7 +20,7 @@ const Form = () => {
           : "text-red-900 border-2 border-red-900"
       }
     >
-      <div className="text-l flex flex-col sm:flex-col lg:flex-row items-center ">
+      <div className="text-base md:text-xl flex flex-col sm:flex-col lg:flex-row items-center ">
         <div className="page1">
           <div>
             <label>
@@ -76,14 +77,14 @@ const Form = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <button>Login</button>
-        <footer className="text-sm">
+        <div className="text-sm">
           <p>
             Don&apos;t have an account?{" "}
             <Link href="/register" className="underline">
               Register
             </Link>
           </p>
-        </footer>
+        </div>
       </div>
     </form>
   );

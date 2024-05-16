@@ -1,15 +1,15 @@
 import DarkModeButton from "./DarkModeButton";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 const NavBar = () => {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state: RootState) => state.darkMode);
 
   return (
     <div className="flex w-screen">
       <div className=" ml-3 md:ml-5 mb-auto mt-auto">
         <Link
           href="/"
-          page
           className={
             dark
               ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mr-3 md:mr-5"

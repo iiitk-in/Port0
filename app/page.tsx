@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import { useSelector } from "react-redux";
+import { RootState } from "./redux/store";
 
 export default function Page() {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state: RootState) => state.darkMode);
 
   return (
     <main

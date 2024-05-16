@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import Link from "next/link";
+import { RootState } from "@/app/redux/store";
 
 const Form = () => {
   const [password, setPassword] = useState("");
@@ -15,9 +16,9 @@ const Form = () => {
   const [dispotp, setDispotp] = useState(false);
   const [passdisp, setPassDisp] = useState(false);
   const [stage, setStage] = useState(0);
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state: RootState) => state.darkMode);
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: any) => {
     setPassword(event.target.value);
     setVisible("block");
     if (password.length < 5) {
@@ -31,7 +32,7 @@ const Form = () => {
       setStrength("Strong");
     }
   };
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     setEmail(email);
     const re = /^[a-zA-Z0-9._-]+@iiitkottayam.ac.in$/;
     if (re.test(email)) {
@@ -127,7 +128,7 @@ const Form = () => {
                       : "p-2 rounded-lg"
                   }
                 />
-                <div className="ml-10 mb-0">
+                <div className="ml-10">
                   <p className="text-md" style={{ display: visible }}>
                     Password Strength:{" "}
                     <span style={{ color: boxcolor }}>{strength}</span>

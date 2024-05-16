@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "../redux/darkMode/darkModeActions";
+import { RootState } from "../redux/store";
 const DarkModeButton = () => {
-  const darkModeState = useSelector((state) => state.darkMode);
+  const darkModeState = useSelector((state:RootState) => state.darkMode);
   const dispatch = useDispatch();
 
   function toggle() {
