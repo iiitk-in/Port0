@@ -13,8 +13,8 @@ export default function Page() {
     <main
       className={
         dark
-          ? "flex-col bg-gradient-to-b from-[#020024] to-[#020024]"
-          : "flex-col bg-gradient-to-b from-amber-100 to-white"
+          ? "overflow-auto flex-col bg-gradient-to-b from-[#020024] to-[#020024]"
+          : "overflow-auto flex-col bg-gradient-to-b from-amber-100 to-white"
       }
     >
       <NavBar />
