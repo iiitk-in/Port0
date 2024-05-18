@@ -33,19 +33,23 @@ const CollegeForm = ({
       </p>
       <div className="text-20 flex flex-col sm:flex-col items-center lg:flex-row">
         <div>
-          <input
-            type="text"
-            
-            autoFocus
-            value={course}
+          <select
+            name="course"
             onChange={(e) => updateFields({ course: e.target.value })}
-            placeholder="Course"
+            value={course}
             className={
               dark
-                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg"
+                ? "text-white bg-slate-800 my-2 border-gray-600 p-2 rounded-lg flex flex-row items-center w-24 hover:border-white-600 mb-5"
+                : "p-2 rounded-lg my-2  flex flex-row items-center bg-white hover:border-gray-600 mb-5"
             }
-          />
+            style={{ width: "100%" }}
+          >
+            <option value="cse-core">CSE Core</option>
+            <option value="cse-cyber">CSE Cyber</option>
+            <option value="cse-ai">CSE AI</option>
+            <option value="ece">ECE</option>
+          </select>
+
           <div style={{ width: "100%" }}>
             <select
               name="year"
@@ -66,7 +70,6 @@ const CollegeForm = ({
           </div>
           <input
             type="text"
-            
             value={rollNumber}
             onChange={(e) => updateFields({ rollNumber: e.target.value })}
             placeholder="Roll Number"
@@ -82,7 +85,6 @@ const CollegeForm = ({
             name="batch"
             value={batch}
             onChange={(e) => updateFields({ batch: e.target.value })}
-            
             className={
               dark
                 ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mt-5 mb-2 hover:border-white-600"
@@ -96,7 +98,6 @@ const CollegeForm = ({
 
           <input
             type="text"
-            
             value={collegeEmail}
             onChange={(e) => updateFields({ collegeEmail: e.target.value })}
             placeholder="College Email"
@@ -108,7 +109,6 @@ const CollegeForm = ({
           />
           <input
             type="text"
-            
             value={lmsPassword}
             onChange={(e) => updateFields({ lmsPassword: e.target.value })}
             placeholder="LMS Password"

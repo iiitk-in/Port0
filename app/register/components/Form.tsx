@@ -27,7 +27,7 @@ type FormData = {
 };
 
 const INITIAL_DATA: FormData = {
-  course: "",
+  course: "cse-core",
   year: "2021",
   rollNumber: "",
   collegeEmail: "",
