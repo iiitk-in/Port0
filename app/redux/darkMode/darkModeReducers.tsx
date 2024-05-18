@@ -1,7 +1,7 @@
 import { TOGGLE_DARK_MODE } from "./darkModeTypes";
 
 const initialState = {
-    darkMode: false
+    darkMode: true
 }
 
 const darkModeReducer = (state = initialState, action: { type: any; }) => {

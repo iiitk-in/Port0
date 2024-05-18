@@ -16,8 +16,8 @@ const Form = () => {
       onSubmit={handleSubmit}
       className={
         dark
-          ? "text-white border-2 border-white"
-          : "text-red-900 border-2 border-red-900"
+          ? "text-white border-2 border-white flex flex-col"
+          : "text-red-900 border-2 border-red-900 flex flex-col"
       }
     >
       <div className="text-base md:text-xl flex flex-col sm:flex-col lg:flex-row items-center ">
@@ -62,8 +62,8 @@ const Form = () => {
                 name="year"
                 className={
                   dark
-                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mt-3"
-                    : "bg-white p-2 rounded-lg mt-3"
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mt-3 flex w-40 md:ml-4"
+                    : "bg-white p-2 rounded-lg mt-3 flex w-40 md:ml-4"
                 }
               >
                 <option value="2021">2021</option>

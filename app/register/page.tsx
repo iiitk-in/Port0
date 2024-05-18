@@ -18,8 +18,15 @@ export default function Registration() {
       <NavBar />
       <div className="sm:flex sm:flex-grow sm:flex-row sm:items-center sm:justify-around p-4">
         <div>
-          <h1 className={dark?"text-3xl text-center p-3 text-white":"text-3xl text-center p-3 text-red-900"}>
-            Register for the <span className="port0">Port0</span> Authentication Service
+          <h1
+            className={
+              dark
+                ? "text-3xl text-center p-3 text-white"
+                : "text-3xl text-center p-3 text-red-900"
+            }
+          >
+            Register for the <span className="port0">Port0</span> Authentication
+            Service
           </h1>
         </div>
         <div>

@@ -25,14 +25,13 @@ form select {
   border-radius: 5px;
   border: 1px solid #ccc;
   transition: all 0.3s ease-out;
-
-  width: 15em;
 }
 .heading{
   transition:all 0.3s ease-in;
 }
 form input {
-  margin: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
   border: 2px solid #ccc;
@@ -46,7 +45,7 @@ form input:hover {
 form button {
   margin: 10px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   background-color: #333;
   color: white;
@@ -59,7 +58,6 @@ form button:hover {
 
 form label {
   margin: 10px;
-
   font-size: 1em;
 }
 
