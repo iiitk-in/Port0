@@ -120,18 +120,6 @@ const CollegeForm = ({
           />
         </div>
       </div>
-      <footer className="text-sm p-2 text-center">
-        <p>
-          Already have an account?{" "}
-          <Link
-            className={dark ? "text-white underline" : "underline"}
-            href="/login"
-          >
-            {" "}
-            Login
-          </Link>
-        </p>
-      </footer>
     </div>
   );
 };
