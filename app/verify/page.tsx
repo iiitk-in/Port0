@@ -1,74 +1,63 @@
-//HAVE TO ADD SUPPORT FOR DARK MODE
 "use client";
-import react from "react";
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import crypto from 'crypto';
 import NavBar from "../components/NavBar";
-
-var pbkdf2 = require('pbkdf2')
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { FormEvent } from "react";
 
 const Verify = () => {
-
-  const handleSubmit = (event: React.FormEvent) => {
+  const dark = useSelector((state: RootState) => state.darkMode);
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    //post to /auth/verify with the OTP and the email
-    //response will be a jwt token
-    //then perform the hashing for /auth/create
-    //then redirect to /create
-
   };
-  const [salt, setSalt] = useState(''); 
-  // setSalt(crypto.randomBytes(16).toString('base64'));
-  const [token,setToken] = useState(''); // get this from localstorage maybe
-  const [email,setEmail] = useState(''); 
-  const [password,setPassword] = useState('');
-
-  var derivedKey = pbkdf2.pbkdf2Sync(password, salt, 1000, 32, 'sha256');
-  
-
   return (
-    <main className="flex flex-col bg-gradient-to-b from-amber-100 to-white dark:from-[#020024] dark:to-[#020024]">
-      <NavBar />
-    <main className="flex md:flex-row flex-col text-center ">
-      <div>
-        <h1 style={{ fontSize: "25px", color: "maroon" }}>
-          Verify your email to continue
-        </h1>
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>
-              <input
-                style={{ width: "300px" }}
-                type="text"
-                placeholder="Enter your email"
-              />
-            </label>
-
-            <label>
-              <input
-                style={{ width: "300px" }}
-                type="number"
-                placeholder="Enter the OTP"
-              />
-            </label>
+    <div
+      className={
+        dark
+          ? "text-white h-screen overflow-auto flex flex-col bg-gradient-to-b from-[#020024] to-[#020024] transition-all duration-500 ease-in-out"
+          : "text-maroon h-screen overflow-auto flex flex-col bg-gradient-to-b from-amber-100 to-white transition-all duration-500 ease-in-out"
+      }
+    >
+      <div className="h-screen">
+        <NavBar />
+        <div className="flex lg:flex-row flex-col justify-center align-center mt-12">
+          <div className=" flex  justify-center align-center mt-10 mb-auto lg:mr-20">
+            <p className="text-3xl text-center">
+              Enter the verification code sent to your mail address
+            </p>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+          <form
+            className="flex flex-col justify-center align-center"
+            onSubmit={handleSubmit}
           >
-            <button>Verify</button>
-          </div>
-        </form>
+            <div className="flex justify-center">
+              <input
+                type="text"
+                placeholder="Enter your email address"
+                className={
+                  dark
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
+                    : "text-red p-2 rounded-lg"
+                }
+              />
+            </div>
+            <div className="flex justify-center">
+              <input
+                type="text"
+                placeholder="Enter your verification code"
+                className={
+                  dark
+                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
+                    : "p-2 rounded-lg"
+                }
+              />
+            </div>
+            <div className="flex justify-center ">
+              <button type="submit">Verify</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </main>
-    </main>
+    </div>
   );
 };
 
