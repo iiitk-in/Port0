@@ -123,7 +123,7 @@ const Form = () => {
           <div
             className={
               alertDisplay
-                ? "block sm:w-96 w-60 flex ml-auto mr-auto transition-opacity duration-500 ease-in-out opacity-100"
+                ? "block mt-5 flex  ml-auto mr-auto lg:ml-0 lg:mr-10 transition-opacity duration-500 ease-in-out opacity-100"
                 : "opacity-0"
             }
           >
@@ -156,8 +156,8 @@ const Form = () => {
               onClick={onSubmit}
               className={
                 dark
-                  ? "bg-slate-800 border-0 p-2 rounded-lg ml-auto size-10 mr-5 flex align-center justify-center"
-                  : "bg-transparent hover:bg-amber-100 border border-red-900 p-2 rounded-lg ml-auto size-10 mr-5 flex align-center justify-center"
+                  ? "bg-slate-800 border-0 p-2 rounded-lg ml-auto mr-10 flex align-center justify-center"
+                  : "bg-transparent hover:bg-amber-100 border border-red-900 p-2 rounded-lg ml-auto size-10 mr-10 flex align-center justify-center"
               }
             >
               {isLastStep ? (
