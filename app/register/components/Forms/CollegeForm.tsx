@@ -76,11 +76,11 @@ const CollegeForm = ({
             className={
               dark
                 ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg"
+                : "p-2 rounded-lg hover:border-red-800"
             }
           />
         </div>
-        <div className="flex flex-col mx-10">
+        <div className="flex flex-col lg:ml-10">
           <select
             name="batch"
             value={batch}
@@ -104,7 +104,7 @@ const CollegeForm = ({
             className={
               dark
                 ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg"
+                : "p-2 rounded-lg hover:border-red-800"
             }
           />
           <input
@@ -115,7 +115,7 @@ const CollegeForm = ({
             className={
               dark
                 ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg"
+                : "p-2 rounded-lg hover:border-red-800"
             }
           />
         </div>

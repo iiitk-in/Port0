@@ -44,7 +44,7 @@ const Verify = () => {
                 className={
                   dark
                     ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                    : "p-2 rounded-lg"
+                    : "p-2 rounded-lg hover:border-red-800"
                 }
               />
             </div>
@@ -53,8 +53,8 @@ const Verify = () => {
                 type="submit"
                 className={
                   dark
-                    ? "bg-slate-800 border-0 p-2 rounded-lg  flex align-center justify-center"
-                    : "bg-transparent hover:bg-amber-100 border border-red-900 p-2 rounded-lg  flex align-center justify-center"
+                    ? "bg-slate-800 border-0 p-2 rounded-lg flex align-center justify-center"
+                    : " bg-red hover:bg-gray-800 border border-red-900 p-2 rounded-lg  flex align-center justify-center"
                 }
               >
                 Verify
