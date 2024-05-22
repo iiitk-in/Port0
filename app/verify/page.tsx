@@ -3,12 +3,19 @@ import NavBar from "../components/NavBar";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { FormEvent } from "react";
+import { useEffect } from "react";
 
 const Verify = () => {
   const dark = useSelector((state: RootState) => state.darkMode);
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
   };
+
+  let email: string = "";
+  if (typeof window !== "undefined") {
+    email = localStorage.getItem("email") ?? "";
+  }
+
   return (
     <div
       className={
@@ -21,25 +28,15 @@ const Verify = () => {
         <NavBar />
         <div className="flex lg:flex-row flex-col justify-center align-center mt-12">
           <div className=" flex  justify-center align-center mt-10 mb-auto lg:mr-20">
-            <p className="text-3xl text-center">
-              Enter the verification code sent to your mail address
+            <p className="lg:text-3xl text-lg text-center mr-5 ml-5">
+              Enter the verification code sent to your mail address<br></br>{" "}
+              {/* <span className="underline">{email}</span> */}
             </p>
           </div>
           <form
-            className="flex flex-col justify-center align-center"
+            className="flex flex-col justify-center align-center lg:mr-20"
             onSubmit={handleSubmit}
           >
-            <div className="flex justify-center">
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                className={
-                  dark
-                    ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                    : "text-red p-2 rounded-lg"
-                }
-              />
-            </div>
             <div className="flex justify-center">
               <input
                 type="text"
@@ -52,7 +49,16 @@ const Verify = () => {
               />
             </div>
             <div className="flex justify-center ">
-              <button type="submit">Verify</button>
+              <button
+                type="submit"
+                className={
+                  dark
+                    ? "bg-slate-800 border-0 p-2 rounded-lg  flex align-center justify-center"
+                    : "bg-transparent hover:bg-amber-100 border border-red-900 p-2 rounded-lg  flex align-center justify-center"
+                }
+              >
+                Verify
+              </button>
             </div>
           </form>
         </div>

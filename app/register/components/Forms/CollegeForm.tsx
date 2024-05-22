@@ -108,7 +108,7 @@ const CollegeForm = ({
             }
           />
           <input
-            type="text"
+            type="password"
             value={lmsPassword}
             onChange={(e) => updateFields({ lmsPassword: e.target.value })}
             placeholder="LMS Password"

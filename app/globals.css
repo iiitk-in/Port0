@@ -39,7 +39,7 @@ form input {
 }
 
 form input:hover {
-  border: 2px solid maroon;
+  border: 2px solid white;
 }
 
 form button {

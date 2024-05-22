@@ -11,6 +11,13 @@ import { ProgressBar } from "./ProgressBar";
 import { Alert } from "./Alert";
 import Arrow from "./Arrow";
 import Link from "next/link";
+import {
+  rollNumberRegex,
+  emailRegex,
+  phoneRegex,
+  lmsPasswordRegex,
+  port0UsernameRegex,
+} from "./Regex";
 
 type FormData = {
   course: string;
@@ -68,9 +75,9 @@ const Form = () => {
       if (
         data.course === "" ||
         data.year === "" ||
-        data.rollNumber === "" ||
-        data.collegeEmail === "" ||
-        data.lmsPassword === "" ||
+        rollNumberRegex(data.rollNumber) === false ||
+        emailRegex(data.collegeEmail) === false ||
+        lmsPasswordRegex(data.lmsPassword) === false ||
         data.batch === ""
       ) {
         setAlertDisplay(true);
@@ -85,7 +92,7 @@ const Form = () => {
         data.firstName === "" ||
         data.lastName === "" ||
         data.personalEmail === "" ||
-        data.phone === "" ||
+        phoneRegex(data.phone) === false ||
         data.state === ""
       ) {
         setAlertDisplay(true);
@@ -96,16 +103,30 @@ const Form = () => {
       }
     }
     if (currentStep === 2) {
-      if (data.port0Username === "" || data.port0Password === "") {
+      if (
+        port0UsernameRegex(data.port0Username) === false ||
+        data.port0Password === ""
+      ) {
         setAlertDisplay(true);
         return;
       } else {
         setAlertDisplay(false);
-        console.log(data);
+        finalSubmit();
         return;
       }
     }
   }
+
+  function finalSubmit() {
+    localStorage.setItem("email", data.collegeEmail);
+    console.log(data);
+    //call OTP api for verification
+    //if success
+    window.location.href = "/verify";
+    //else
+    //show api error
+  }
+
   return (
     <div
       className={
@@ -115,7 +136,7 @@ const Form = () => {
       }
     >
       <div className="p-10">
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={finalSubmit}>
           {step}
           <input type="text" required hidden></input>
           <div
@@ -126,7 +147,7 @@ const Form = () => {
             }
           >
             <Alert
-              message="All fields are required."
+              message="Fill all fields correctly."
               type="warning"
               dark={dark}
             />
