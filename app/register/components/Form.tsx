@@ -64,49 +64,47 @@ const Form = () => {
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!isLastStep || isLastStep) {
-      if (currentStep === 0) {
-        if (
-          data.course === "" ||
-          data.year === "" ||
-          data.rollNumber === "" ||
-          data.collegeEmail === "" ||
-          data.lmsPassword === "" ||
-          data.batch === ""
-        ) {
-          setAlertDisplay(true);
-          return;
-        } else {
-          setAlertDisplay(false);
-          return next();
-        }
-      } else if (currentStep === 1) {
-        if (
-          data.firstName === "" ||
-          data.lastName === "" ||
-          data.personalEmail === "" ||
-          data.phone === "" ||
-          data.state === ""
-        ) {
-          setAlertDisplay(true);
-          return;
-        } else {
-          setAlertDisplay(false);
-          return next();
-        }
-      } else if (currentStep === 2) {
-        if (data.port0Username === "" || data.port0Password === "") {
-          setAlertDisplay(true);
-          return;
-        } else {
-          setAlertDisplay(false);
-          return next();
-        }
+    if (currentStep === 0) {
+      if (
+        data.course === "" ||
+        data.year === "" ||
+        data.rollNumber === "" ||
+        data.collegeEmail === "" ||
+        data.lmsPassword === "" ||
+        data.batch === ""
+      ) {
+        setAlertDisplay(true);
+        return;
       } else {
+        setAlertDisplay(false);
         return next();
       }
     }
-    console.log(data);
+    if (currentStep === 1) {
+      if (
+        data.firstName === "" ||
+        data.lastName === "" ||
+        data.personalEmail === "" ||
+        data.phone === "" ||
+        data.state === ""
+      ) {
+        setAlertDisplay(true);
+        return;
+      } else {
+        setAlertDisplay(false);
+        return next();
+      }
+    }
+    if (currentStep === 2) {
+      if (data.port0Username === "" || data.port0Password === "") {
+        setAlertDisplay(true);
+        return;
+      } else {
+        setAlertDisplay(false);
+        console.log(data);
+        return;
+      }
+    }
   }
   return (
     <div
@@ -117,7 +115,7 @@ const Form = () => {
       }
     >
       <div className="p-10">
-        <form onSubmit={onSubmit} className="flex flex-col">
+        <form className="flex flex-col">
           {step}
           <input type="text" required hidden></input>
           <div
