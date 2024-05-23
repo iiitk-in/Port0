@@ -2,15 +2,13 @@
 import NavBar from "../components/NavBar";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { FormEvent } from "react";
 import { useEffect } from "react";
 import DarkModeStatus from "../redux/status/darkModeStatus";
+import OTPForm from "./OTPForm";
 const Verify = () => {
   const email = useSelector((state: RootState) => state.email.email);
   const dark = DarkModeStatus();
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-  };
+  
   useEffect(() => {
     document.title = "Verify";
   }, []);
@@ -32,49 +30,17 @@ const Verify = () => {
                 {email}
               </p>
             </div>
-            <form
-              className="flex flex-col justify-center align-center lg:mr-20"
-              onSubmit={handleSubmit}
-            >
-              <div className="flex justify-center">
-                <input
-                  type="text"
-                  placeholder="Enter your verification code"
-                  className={
-                    dark
-                      ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                      : "p-2 rounded-lg hover:border-red-800"
-                  }
-                />
-              </div>
-              <div className="flex justify-center ">
-                <button
-                  type="submit"
-                  className={
-                    dark
-                      ? "bg-slate-800 border-0 p-2 rounded-lg flex align-center justify-center"
-                      : " bg-red hover:bg-gray-800 border border-red-900 p-2 rounded-lg  flex align-center justify-center"
-                  }
-                >
-                  Verify
-                </button>
-              </div>
-              <p
-                className={
-                  dark
-                    ? "text-center border-2 border-white rounded-md p-2 flex mr-auto ml-auto px-10 justify-center mt-5"
-                    : "text-center border-2 border-red-900 rounded-md p-2 flex mr-auto ml-auto px-10 justify-center mt-5"
-                }
-              >
-                Don&apos;t reload this page!
-              </p>
-            </form>
+            <OTPForm />
           </div>
         </div>
       </div>
     );
   } else {
-    window.location.href = "/register";
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      window.location.href = "/register";
+    }
+    );
     return (
       <div>
         <p>Redirecting to register page...</p>
