@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import Link from "next/link";
+import DarkModeStatus from "@/app/redux/status/darkModeStatus";
 
 type Port0FormProps = {
   port0Username: string;
@@ -12,7 +10,7 @@ const Port0Form = ({
   port0Password,
   updateFields,
 }: Port0FormProps) => {
-  const dark = useSelector((state: RootState) => state.darkMode);
+  const dark = DarkModeStatus();
   function showPassword() {
     var x: any = document.getElementById("password");
     if (x.type === "password") {

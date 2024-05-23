@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleDarkMode } from "../../redux/darkMode/darkModeActions";
-import { RootState } from "@/app/redux/store";
+import DarkModeStatus from "@/app/redux/status/darkModeStatus";
 const Form = () => {
   const [password, setPassword] = useState("");
   const handleSubmit = () => {
     event?.preventDefault();
     //will do this later
   };
-  const dark = useSelector((state: RootState) => state.darkMode);
-
+  const dark = DarkModeStatus();
   return (
     <form
       onSubmit={handleSubmit}

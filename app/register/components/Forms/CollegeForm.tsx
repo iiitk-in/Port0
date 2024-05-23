@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import Link from "next/link";
+import DarkModeStatus from "@/app/redux/status/darkModeStatus";
 type CollegeFormProps = {
   course: string;
   year: string;
@@ -19,7 +17,7 @@ const CollegeForm = ({
   batch,
   updateFields,
 }: CollegeFormProps) => {
-  const dark = useSelector((state: RootState) => state.darkMode);
+  const dark = DarkModeStatus();
   return (
     <div>
       <p

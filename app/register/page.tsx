@@ -1,11 +1,10 @@
 "use client";
-import { useSelector } from "react-redux";
 import React from "react";
 import Form from "./components/Form";
 import NavBar from "../components/NavBar";
-import { RootState } from "../redux/store";
+import DarkModeStatus from "../redux/status/darkModeStatus";
 export default function Registration() {
-  const dark = useSelector((state: RootState) => state.darkMode);
+  const dark = DarkModeStatus();
 
   return (
     <div

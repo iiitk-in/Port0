@@ -8,7 +8,7 @@ export function ProgressBar({
   currentStep: number;
   steps: number;
 }) {
-  const dark = useSelector((state: RootState) => state.darkMode);
+  const dark = useSelector((state: RootState) => state.darkMode.darkMode);
   const progress = (currentStep / steps) * 100;
   return (
     <div>

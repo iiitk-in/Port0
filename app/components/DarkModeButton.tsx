@@ -1,10 +1,9 @@
 "use client";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleDarkMode } from "../redux/darkMode/darkModeActions";
-import { RootState } from "../redux/store";
+import DarkModeStatus from "../redux/status/darkModeStatus";
 const DarkModeButton = () => {
-  const darkModeState = useSelector((state:RootState) => state.darkMode);
+  const darkModeState = DarkModeStatus();
   const dispatch = useDispatch();
 
   function toggle() {

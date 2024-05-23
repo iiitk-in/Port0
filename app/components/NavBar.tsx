@@ -1,10 +1,8 @@
 import DarkModeButton from "./DarkModeButton";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import DarkModeStatus from "../redux/status/darkModeStatus";
 const NavBar = () => {
-  const dark = useSelector((state: RootState) => state.darkMode);
-
+  const dark = DarkModeStatus();
   return (
     <div className="flex w-screen">
       <div className=" ml-3 md:ml-5 mb-auto mt-auto">

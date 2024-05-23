@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store";
-import Link from "next/link";
+import DarkModeStatus from "@/app/redux/status/darkModeStatus";
 
 type PersonalFormProps = {
   personalEmail: string;
@@ -19,8 +17,7 @@ const PersonalForm = ({
   phone,
   updateFields,
 }: PersonalFormProps) => {
-  const dark = useSelector((state: RootState) => state.darkMode);
-
+  const dark = DarkModeStatus();
   return (
     <div>
       <p

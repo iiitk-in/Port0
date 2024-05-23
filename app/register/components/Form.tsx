@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 "use client";
 import { FormEvent, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/app/redux/store";
 import { useMultiStepForm } from "./useMultiStepForm";
 import CollegeForm from "./Forms/CollegeForm";
@@ -18,6 +18,7 @@ import {
   lmsPasswordRegex,
   port0UsernameRegex,
 } from "./Regex";
+import { changeEmail } from "@/app/redux/email/emailActions";
 
 type FormData = {
   course: string;
@@ -52,8 +53,10 @@ const INITIAL_DATA: FormData = {
 };
 
 const Form = () => {
-  const dark = useSelector((state: RootState) => state.darkMode);
+  const dispatch = useDispatch();
+  const dark = useSelector((state: RootState) => state.darkMode.darkMode);
   const [data, setData] = useState(INITIAL_DATA);
+  const [redirectDisplay, setRedirectDisplay] = useState(false);
   function updateFields(fields: Partial<FormData>) {
     setData((prev) => ({ ...prev, ...fields }));
   }
@@ -65,6 +68,7 @@ const Form = () => {
     ]);
   function goBack(e: FormEvent) {
     setAlertDisplay(false);
+    setRedirectDisplay(false);
     back();
   }
   const [alertDisplay, setAlertDisplay] = useState(false);
@@ -118,11 +122,11 @@ const Form = () => {
   }
 
   function finalSubmit() {
-    localStorage.setItem("email", data.collegeEmail);
     console.log(data);
     //call OTP api for verification
     //if success
-    window.location.href = "/verify";
+    dispatch(changeEmail(data.collegeEmail));
+    setRedirectDisplay(true);
     //else
     //show api error
   }
@@ -202,6 +206,18 @@ const Form = () => {
             </p>
           </footer>
         </form>
+      </div>
+      <div
+        style={redirectDisplay ? { display: "block" } : { display: "none" }}
+        className="mb-5 text-center"
+      >
+        <h1>
+          OTP Sent Successfully! Click{" "}
+          <Link href="/verify" className="underline">
+            here
+          </Link>{" "}
+          to verify
+        </h1>
       </div>
       <div className="p-0 m-0">
         <ProgressBar currentStep={currentStep + 1} steps={steps.length} />
