@@ -1,10 +1,12 @@
 import DarkModeStatus from "../redux/status/darkModeStatus";
 import { FormEvent } from "react";
-
+import FormDataStatus from "../redux/status/formDataStatus";
 const OTPForm = () => {
-    const dark = DarkModeStatus();
-    const handleSubmit = (event: FormEvent) => {
+  const dark = DarkModeStatus();
+  const data = FormDataStatus();
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    console.log(data);
   };
   return (
     <div>

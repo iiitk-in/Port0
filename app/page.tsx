@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useState } from "react";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import DarkModeStatus from "./redux/status/darkModeStatus";

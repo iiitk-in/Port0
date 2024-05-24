@@ -19,6 +19,7 @@ import {
   port0UsernameRegex,
 } from "./Regex";
 import { changeEmail } from "@/app/redux/email/emailActions";
+import { updateData } from "@/app/redux/formData/formDataActions";
 
 type FormData = {
   course: string;
@@ -36,7 +37,7 @@ type FormData = {
   batch: string;
 };
 
-const INITIAL_DATA: FormData = {
+export const INITIAL_DATA: FormData = {
   course: "cse-core",
   year: "2021",
   rollNumber: "",
@@ -126,6 +127,7 @@ const Form = () => {
     //call OTP api for verification
     //if success
     dispatch(changeEmail(data.collegeEmail));
+    dispatch(updateData(data));
     setRedirectDisplay(true);
     //else
     //show api error

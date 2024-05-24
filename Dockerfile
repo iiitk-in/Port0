@@ -1,11 +1,5 @@
 FROM node:12.18-alpine
 
-# ENV CADDYPORT = 80
-
-# RUN 
-
-# RUN 
-
 ENV PORT=8080
 
 EXPOSE 8080
@@ -19,4 +13,4 @@ RUN npm i next
 RUN npx next build
 
 
-CMD ["npx","next","start","-p","$PORT"]
+CMD ["npx","next","start","-p",$PORT]
