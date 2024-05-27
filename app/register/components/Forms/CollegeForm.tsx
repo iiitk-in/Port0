@@ -37,8 +37,8 @@ const CollegeForm = ({
             value={course}
             className={
               dark
-                ? "text-white bg-slate-800 my-2 border-gray-600 p-2 rounded-lg flex flex-row items-center w-24 hover:border-white-600 mb-5"
-                : "p-2 rounded-lg my-2  flex flex-row items-center bg-white hover:border-gray-600 mb-5"
+                ? "text-white bg-slate-800  border-gray-600 p-2 rounded-lg flex flex-row items-center w-24 hover:border-white-600 mb-5"
+                : "p-2 rounded-lg   flex flex-row items-center bg-white hover:border-gray-600 mb-5"
             }
             style={{ width: "100%" }}
           >
@@ -85,8 +85,8 @@ const CollegeForm = ({
             onChange={(e) => updateFields({ batch: e.target.value })}
             className={
               dark
-                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mt-5 mb-2 hover:border-white-600"
-                : "bg-white p-2 rounded-lg mt-5 hover:border-gray-600 mb-2"
+                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mb-2 hover:border-white-600"
+                : "bg-white p-2 rounded-lg hover:border-gray-600 mb-2"
             }
           >
             <option value="batch1">Batch 1</option>

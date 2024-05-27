@@ -21,7 +21,7 @@ import {
 import { changeEmail } from "@/app/redux/email/emailActions";
 import { updateData } from "@/app/redux/formData/formDataActions";
 
-type FormData = {
+export type FormData = {
   course: string;
   year: string;
   rollNumber: string;

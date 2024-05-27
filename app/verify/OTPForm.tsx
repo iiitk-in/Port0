@@ -1,12 +1,45 @@
 import DarkModeStatus from "../redux/status/darkModeStatus";
 import { FormEvent } from "react";
 import FormDataStatus from "../redux/status/formDataStatus";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+const { convertToAES } = require("@harshiyer/json-crypto");
+// var jwt = require("jsonwebtoken");
+
 const OTPForm = () => {
   const dark = DarkModeStatus();
-  const data = FormDataStatus();
-  const handleSubmit = (event: FormEvent) => {
+  const data = useSelector((state: RootState) => state.formData);
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    console.log(data);
+
+    console.log(data.FormData.collegeEmail);
+    const password = data.FormData.port0Password;
+    const email: string = data.FormData.collegeEmail;
+    const convertedData = new convertToAES(data, password);
+    const salt = (convertedData as any).salt;
+    const aes256Bit = (convertedData as any).aes256Bit;
+    const keyHash = (convertedData as any).sha256key;
+
+    // var token = jwt.sign({ email: data.FormData.collegeEmail }, "testToken", {
+    //   expiresIn: "1h",
+    // });
+    var token = "TOKEN"; //add token here
+    const payload: any = {
+      token: token,
+      email: email,
+      salt: salt,
+      aes256Bit: "aes256Bit", //will work on ts types for npm package
+      keyHash: keyHash,
+    };
+    const url = "http://localhost:XXXXX/auth/create"; //add local db hosted url here
+    try {
+      axios.post(url, payload).then((res) => {
+        console.log(res);
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   return (
     <div>

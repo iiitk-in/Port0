@@ -8,7 +8,7 @@ import OTPForm from "./OTPForm";
 const Verify = () => {
   const email = useSelector((state: RootState) => state.email.email);
   const dark = DarkModeStatus();
-  
+
   useEffect(() => {
     document.title = "Verify";
   }, []);
@@ -39,8 +39,7 @@ const Verify = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       window.location.href = "/register";
-    }
-    );
+    });
     return (
       <div>
         <p>Redirecting to register page...</p>
