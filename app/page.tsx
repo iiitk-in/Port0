@@ -3,8 +3,14 @@ import React from "react";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import DarkModeStatus from "./redux/status/darkModeStatus";
+import { Roboto_Mono } from "next/font/google";
+const roboto_mono = Roboto_Mono({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function Page() {
+
   const dark = DarkModeStatus();
   return (
     <section
@@ -22,8 +28,8 @@ export default function Page() {
         <h1
           className={
             dark
-              ? "text-white text-4xl port0 text-center mb-4"
-              : "text-4xl port0 text-center mb-4"
+              ? `text-white text-4xl text-center mb-4 ${roboto_mono.className}`
+              : `text-4xl text-center mb-4 ${roboto_mono.className}`
           }
         >
           Port0
@@ -37,7 +43,7 @@ export default function Page() {
             }
           >
             <h3 className="block mb-3 text-2xl">
-              <span className="port0">Port0</span>, the authentication service
+              <span className={roboto_mono.className}>Port0</span>, the authentication service
               that is at the centre of IIITK.in.
             </h3>
             <h2 className="text-2xl">Safe.</h2>
@@ -69,7 +75,7 @@ export default function Page() {
         <div className="grow"></div>
         <footer className="flex justify-center mt-4 grow">
           <p className={dark ? "text-white text-center" : "text-center"}>
-            &copy; 2024 <span className="port0">Port0</span> Team, IIITK.in
+            &copy; 2024 <span className={roboto_mono.className}>Port0</span> Team, IIITK.in
             <br />
             Liscensed under the MIT License.{" "}
             <a

@@ -3,7 +3,11 @@ import React from "react";
 import Form from "./components/Form";
 import NavBar from "../components/NavBar";
 import DarkModeStatus from "../redux/status/darkModeStatus";
-
+import { Roboto_Mono } from "next/font/google";
+const roboto_mono = Roboto_Mono({
+  weight: '400',
+  subsets: ['latin'],
+})
 export default function Registration() {
   const dark = DarkModeStatus();
   return (
@@ -25,7 +29,7 @@ export default function Registration() {
                   : "text-3xl text-center p-3 text-red-900"
               }
             >
-              Login to the <span className="port0">Port0</span> Authentication
+              Login to the <span className={roboto_mono.className}>Port0</span> Authentication
             </h1>
           </div>
           <div className="mb-12 ">
