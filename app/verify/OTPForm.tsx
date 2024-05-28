@@ -18,23 +18,34 @@ const OTPForm = () => {
     const email: string = data.FormData.collegeEmail;
     const convertedData = new convertToAES(data, password);
     const salt = (convertedData as any).salt;
-    const aes256Bit = (convertedData as any).aes256Bit;
+    const aes256Bit = (convertedData as any).aesString;
     const keyHash = (convertedData as any).sha256key;
 
-    // var token = jwt.sign({ email: data.FormData.collegeEmail }, "testToken", {
-    //   expiresIn: "1h",
-    // });
-    var token = "TOKEN"; //add token here
+
+    let token: string = "";
+    const url = "http://localhost:43345"; //add local db hosted url here
+
+    try {
+      await axios
+        .post(`${url}/auth/issueToken`, {
+          email: email,
+        })
+        .then((res) => {
+          token = res.data.token;
+        });
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
     const payload: any = {
       token: token,
       email: email,
       salt: salt,
-      aes256Bit: "aes256Bit", //will work on ts types for npm package
+      aes256Bit: aes256Bit,
       keyHash: keyHash,
     };
-    const url = "http://localhost:XXXXX/auth/create"; //add local db hosted url here
     try {
-      axios.post(url, payload).then((res) => {
+      axios.post(`${url}/auth/create`, payload).then((res) => {
         console.log(res);
       });
     } catch (error) {
