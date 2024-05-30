@@ -1,8 +1,8 @@
-import { UPDATE_DATA } from "./userDataTypes";
+import { UPDATE_USER_DATA } from "./userDataTypes";
 
-export const updateData = (data: object) => {
+export const updateUserData = (data: object) => {
   return {
-    type: UPDATE_DATA,
+    type: UPDATE_USER_DATA,
     payload: data,
   };
 };

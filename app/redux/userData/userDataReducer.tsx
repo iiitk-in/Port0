@@ -1,7 +1,7 @@
-import { UPDATE_DATA } from "./userDataTypes";
+import { UPDATE_USER_DATA } from "./userDataTypes";
 
 const initialState = {
-  FormData: {
+  UserData: {
     course: "",
     year: "",
     rollNumber: "",
@@ -26,10 +26,10 @@ const userDataReducer = (
   }
 ) => {
   switch (action.type) {
-    case UPDATE_DATA:
+    case UPDATE_USER_DATA:
       return {
         ...state,
-        FormData: action.payload,
+        UserData: action.payload,
       };
     default:
       return state;

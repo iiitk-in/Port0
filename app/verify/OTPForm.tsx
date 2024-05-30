@@ -6,25 +6,25 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 const { convertToAES } = require("@harshiyer/json-crypto");
 // var jwt = require("jsonwebtoken");
+import { API_URL } from "../components/URL";
 
 const OTPForm = () => {
   const dark = DarkModeStatus();
-  const data = useSelector((state: RootState) => state.formData);
-  
+  const data = FormDataStatus();
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    console.log(data.FormData.collegeEmail);
-    const password = data.FormData.port0Password;
-    const email: string = data.FormData.collegeEmail;
+    console.log((data as any).FormData.collegeEmail);
+    const password = (data as any).FormData.port0Password;
+    const email: string = (data as any).FormData.collegeEmail;
     const convertedData = new convertToAES(data, password);
     const salt = (convertedData as any).salt;
     const aes256Bit = (convertedData as any).aesString;
     const keyHash = (convertedData as any).sha256key;
 
-
     let token: string = "";
-    const url = "http://localhost:43345"; //add local db hosted url here
+    const url = API_URL; //add local db hosted url here
 
     try {
       await axios
@@ -46,10 +46,18 @@ const OTPForm = () => {
       keyHash: keyHash,
     };
     try {
-      axios.post(`${url}/auth/create`, payload).then((res) => {
-        console.log(res);
-      });
-    } catch (error) {
+      axios
+        .post(`${url}/auth/create`, payload, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((res) => {
+          console.log(res);
+        });
+    } catch (error: any) {
+      if (error.response.status == 500) {
+        alert("Invalid Credentials");
+      }
+
       console.error("Error:", error);
     }
   };
@@ -82,15 +90,6 @@ const OTPForm = () => {
             Verify
           </button>
         </div>
-        <p
-          className={
-            dark
-              ? "text-center border-2 border-white rounded-md p-2 flex mr-auto ml-auto px-10 justify-center mt-5"
-              : "text-center border-2 border-red-900 rounded-md p-2 flex mr-auto ml-auto px-10 justify-center mt-5"
-          }
-        >
-          Don&apos;t reload this page!
-        </p>
       </form>
     </div>
   );

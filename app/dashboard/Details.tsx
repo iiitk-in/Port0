@@ -1,25 +1,34 @@
 import DarkModeStatus from "../redux/status/darkModeStatus";
+import UserDataStatus from "../redux/status/userDataStatus";
 import DetailComponent from "./DetailComponent";
 
 const Details = () => {
   const dark = DarkModeStatus();
+  const vault: any = UserDataStatus();
+  const userDetails = vault.UserData.FormData;
   const detailArray = [
     "Name",
-    "Age",
     "Batch",
+    "Year",
     "Course",
     "Roll No",
     "Username",
     "Email",
+    "Phone",
+    "Personal Email",
+    "State",
   ];
   const detailValue = [
-    "John Doe",
-    "18",
-    "2023",
-    "CSE Core",
-    "2023 BCX 1234",
-    "JohnDoe",
-    "john23bcx1234@ iiitkottayam.ac.in",
+    `${userDetails.firstName} ${userDetails.lastName}`,
+    userDetails.batch,
+    userDetails.year,
+    userDetails.course,
+    userDetails.rollNumber,
+    userDetails.port0Username,
+    userDetails.collegeEmail,
+    userDetails.phone,
+    userDetails.personalEmail,
+    userDetails.state,
   ];
 
   return (

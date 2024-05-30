@@ -4,12 +4,19 @@ import Form from "./components/Form";
 import NavBar from "../components/NavBar";
 import DarkModeStatus from "../redux/status/darkModeStatus";
 import { Roboto_Mono } from "next/font/google";
+import LoggedInStatus from "../redux/status/loggedInStatus";
+import { useRouter } from "next/navigation";
 const roboto_mono = Roboto_Mono({
-  weight: '400',
-  subsets: ['latin'],
-})
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function Registration() {
+  const router = useRouter();
   const dark = DarkModeStatus();
+  const loggedIn = LoggedInStatus();
+  if (loggedIn) {
+    router.push("/dashboard");
+  }
   return (
     <section
       className={
@@ -29,7 +36,8 @@ export default function Registration() {
                   : "text-3xl text-center p-3 text-red-900"
               }
             >
-              Login to the <span className={roboto_mono.className}>Port0</span> Authentication
+              Login to the <span className={roboto_mono.className}>Port0</span>{" "}
+              Authentication
             </h1>
           </div>
           <div className="mb-12 ">

@@ -25,6 +25,8 @@
     "react-dom": "^18",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-encrypt": "^5.1.1",
     "vitest": "^1.6.0"
   },
   "devDependencies": {
