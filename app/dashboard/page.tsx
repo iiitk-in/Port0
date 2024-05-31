@@ -1,20 +1,23 @@
 "use client";
-import NavBar from "../components/NavBar";
-import DarkModeStatus from "../redux/status/darkModeStatus";
 import LoggedInStatus from "../redux/status/loggedInStatus";
-import UserDataStatus from "../redux/status/userDataStatus";
-import Details from "./Details";
 import HomePage from "./HomePage";
 import { useRouter } from "next/navigation";
-
+import DarkModeStatus from "../redux/status/darkModeStatus";
 const Dashboard = () => {
   const router = useRouter();
   const logInStatus = LoggedInStatus();
+  const dark = DarkModeStatus();
   if (logInStatus) {
     return (
-      <>
-        <HomePage />;
-      </>
+      <div
+        className={
+          dark
+            ? "h-screen overflow-auto flex flex-col bg-gradient-to-b from-[#020024] to-[#020024] text-white transition-all duration-500 ease-in"
+            : "h-screen overflow-auto flex flex-col bg-gradient-to-b from-amber-100 to-white text-black transition-all duration-500 ease-in"
+        }
+      >
+        <HomePage />
+      </div>
     );
   } else {
     router.push("/login");

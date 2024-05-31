@@ -3,7 +3,6 @@ import allReducers from "./index";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-/* eslint-disable no-underscore-dangle */
 const secret = "my-super-difficult-to-guess-secret"; //will hide this later :)
 const persistConfig = {
   key: "root",

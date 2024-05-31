@@ -30,7 +30,6 @@ const Form = () => {
           password: password,
         })
         .then((res) => {
-          console.log(res);
           token = res.data.token;
         });
     } catch (error) {
@@ -42,24 +41,29 @@ const Form = () => {
       email: email,
       password: hashedPassword,
     };
+
     try {
       await axios.post(`${url}/auth/login`, payload).then((res) => {
-        console.log(res);
         if (res.status === 200) {
           alert("Login Successful");
+
           const vault: object = {
             aes256Bit: res.data.aes256Bit,
             salt: res.data.salt,
             password: password,
           };
+
           let decodedVault: any = decodeVault(vault);
+
           dispatch({
             type: "UPDATE_USER_DATA",
             payload: decodedVault,
           });
+
           dispatch({
             type: "CHANGE_LOG_STATUS",
           });
+
           router.push("/dashboard");
         }
       });
@@ -70,7 +74,9 @@ const Form = () => {
       }
     }
   };
+
   const dark = DarkModeStatus();
+
   return (
     <form
       onSubmit={handleSubmit}

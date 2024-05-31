@@ -2,10 +2,7 @@ import DarkModeStatus from "../redux/status/darkModeStatus";
 import { FormEvent } from "react";
 import FormDataStatus from "../redux/status/formDataStatus";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 const { convertToAES } = require("@harshiyer/json-crypto");
-// var jwt = require("jsonwebtoken");
 import { API_URL } from "../components/URL";
 
 const OTPForm = () => {
@@ -24,7 +21,7 @@ const OTPForm = () => {
     const keyHash = (convertedData as any).sha256key;
 
     let token: string = "";
-    const url = API_URL; //add local db hosted url here
+    const url = API_URL;
 
     try {
       await axios
@@ -35,7 +32,7 @@ const OTPForm = () => {
           token = res.data.token;
         });
     } catch (error) {
-      console.error("Error:", error);
+      console.log(error);
     }
 
     const payload: any = {
@@ -46,19 +43,19 @@ const OTPForm = () => {
       keyHash: keyHash,
     };
     try {
-      axios
-        .post(`${url}/auth/create`, payload, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then((res) => {
-          console.log(res);
-        });
-    } catch (error: any) {
-      if (error.response.status == 500) {
-        alert("Invalid Credentials");
+      await axios.post(`${url}/auth/create`, payload).then((res) => {
+        if (res.status === 200) {
+          alert("Account Created Successfully");
+        }
+      });
+    } catch (error) {
+      if (error.response.status === 401) {
+        alert("Account already exists!");
+      } else if (error.response.status === 400) {
+        alert("Invalid Email");
+      } else if (error.response.status === 500) {
+        alert("Server error");
       }
-
-      console.error("Error:", error);
     }
   };
   return (
