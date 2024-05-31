@@ -31,8 +31,9 @@ const OTPForm = () => {
         .then((res) => {
           token = res.data.token;
         });
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+      alert("Invalid Email");
     }
 
     const payload: any = {
@@ -48,7 +49,7 @@ const OTPForm = () => {
           alert("Account Created Successfully");
         }
       });
-    } catch (error) {
+    } catch (error: any) {
       if (error.response.status === 401) {
         alert("Account already exists!");
       } else if (error.response.status === 400) {
