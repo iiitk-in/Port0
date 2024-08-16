@@ -15,7 +15,6 @@ import {
   rollNumberRegex,
   emailRegex,
   phoneRegex,
-  lmsPasswordRegex,
   port0UsernameRegex,
 } from "./Regex";
 import { changeEmail } from "@/app/redux/email/emailActions";
@@ -82,7 +81,6 @@ const Form = () => {
         data.year === "" ||
         rollNumberRegex(data.rollNumber) === false ||
         emailRegex(data.collegeEmail) === false ||
-        lmsPasswordRegex(data.lmsPassword) === false ||
         data.batch === ""
       ) {
         setAlertDisplay(true);
@@ -96,9 +94,7 @@ const Form = () => {
       if (
         data.firstName === "" ||
         data.lastName === "" ||
-        data.personalEmail === "" ||
-        phoneRegex(data.phone) === false ||
-        data.state === ""
+        data.personalEmail === ""
       ) {
         setAlertDisplay(true);
         return;
@@ -137,8 +133,8 @@ const Form = () => {
     <div
       className={
         dark
-          ? "text-white border-2 rounded-lg border-white  transition-border duration-500 ease-in-out"
-          : "text-red-900 border-2 rounded-lg border-red-900  transition-border duration-500 ease-in-out"
+          ? "mt-8 md:mt-0 text-white border-2 rounded-lg border-white  transition-border duration-500 ease-in-out"
+          : "mt-8 md:mt-0 text-red-900 border-2 rounded-lg border-red-900  transition-border duration-500 ease-in-out"
       }
     >
       <div className="p-10">

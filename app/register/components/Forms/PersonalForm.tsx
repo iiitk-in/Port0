@@ -66,30 +66,6 @@ const PersonalForm = ({
             }
           />
         </div>
-        <div className="flex flex-col lg:ml-10">
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => updateFields({ phone: e.target.value })}
-            placeholder="Phone"
-            className={
-              dark
-                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg hover:border-red-800"
-            }
-          />
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => updateFields({ state: e.target.value })}
-            placeholder="State"
-            className={
-              dark
-                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg hover:border-red-800"
-            }
-          />
-        </div>
       </div>
     </div>
   );

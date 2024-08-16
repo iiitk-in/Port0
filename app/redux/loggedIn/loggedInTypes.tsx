@@ -1,0 +1,1 @@
+export const CHANGE_LOG_STATUS = "CHANGE_LOG_STATUS";
