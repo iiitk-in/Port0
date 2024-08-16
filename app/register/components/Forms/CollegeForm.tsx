@@ -105,17 +105,6 @@ const CollegeForm = ({
                 : "p-2 rounded-lg hover:border-red-800"
             }
           />
-          <input
-            type="password"
-            value={lmsPassword}
-            onChange={(e) => updateFields({ lmsPassword: e.target.value })}
-            placeholder="LMS Password"
-            className={
-              dark
-                ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg"
-                : "p-2 rounded-lg hover:border-red-800"
-            }
-          />
         </div>
       </div>
     </div>

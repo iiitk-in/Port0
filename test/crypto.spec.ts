@@ -18,4 +18,3 @@ describe("Test JSON Crypto library", () => {
     expect(decrypted).toEqual(data);
   });
 });
-

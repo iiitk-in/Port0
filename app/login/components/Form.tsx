@@ -82,8 +82,8 @@ const Form = () => {
       onSubmit={handleSubmit}
       className={
         dark
-          ? "text-white border-2 border-white flex flex-col"
-          : "text-red-900 border-2 border-red-900 flex flex-col"
+          ? "text-white border-0 border-white flex flex-col"
+          : "text-red-900 border-0 border-red-900 flex flex-col"
       }
     >
       <div className="text-base md:text-xl flex flex-col sm:flex-col lg:flex-row items-center ">

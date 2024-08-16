@@ -10,8 +10,8 @@ const NavBar = () => {
           href="/"
           className={
             dark
-              ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mr-3 md:mr-5"
-              : "text-maroon border border-red-900 p-2 rounded-lg mr-3 md:mr-5"
+              ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mr-3 md:mr-3"
+              : "text-maroon border border-red-900 p-2 rounded-lg mr-3 md:mr-3"
           }
         >
           Home
@@ -20,8 +20,8 @@ const NavBar = () => {
           href="https://blog.iiitk.in"
           className={
             dark
-              ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mr-3 md:mr-5"
-              : "text-maroon border border-red-900 p-2 rounded-lg mr-3 md:mr-5"
+              ? "text-white bg-slate-800 border-gray-600 p-2 rounded-lg mr-3 md:mr-3"
+              : "text-maroon border border-red-900 p-2 rounded-lg mr-3 md:mr-3"
           }
         >
           Blog
